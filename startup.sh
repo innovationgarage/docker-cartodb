@@ -3,7 +3,7 @@
 export CARTO_HOSTNAME=${CARTO_HOSTNAME:=$HOSTNAME}
 export CARTO_PORT=${CARTO_PORT:=80}
 
-perl -pi -e 's/cartodb\.localhost/$ENV{"CARTO_HOSTNAME"}/g' /Windshaft-cartodb/config/environments/development.js /Windshaft-cartodb/config/environments/development.js
+perl -pi -e 's/CARTO_HOST/$ENV{"CARTO_HOSTNAME"}/g' /etc/nginx/sites-enabled/default /cartodb/config/app_config.yml /Windshaft-cartodb/config/environments/development.js
 perl -pi -e 's/CARTO_PORT/$ENV{"CARTO_PORT"}/g' /etc/nginx/sites-enabled/default /cartodb/config/app_config.yml
 
 PGDATA=/var/lib/postgresql
