@@ -250,6 +250,7 @@ ENV GDAL_DATA /usr/share/gdal/2.2
 ENV SYNC_TABLES_INTERVAL 3600
 
 ADD ./startup.sh /opt/startup.sh
+ADD ./healthcheck.sh /opt/healthcheck.sh
 
 CMD ["/bin/bash", "/opt/startup.sh"]
-HEALTHCHECK CMD curl -f http://localhost || exit 1
+HEALTHCHECK CMD /bin/bash /opt/healthcheck.sh
